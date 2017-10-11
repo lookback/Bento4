@@ -10,6 +10,7 @@ set(SOURCE_CORE ${SOURCE_ROOT}/Core)
 set(SOURCE_CRYPTO ${SOURCE_ROOT}/Crypto)
 set(SOURCE_METADATA ${SOURCE_ROOT}/MetaData)
 set(SOURCE_SYSTEM ${SOURCE_ROOT}/System)
+set(SOURCE_CAPI ${SOURCE_ROOT}/CApi)
 
 # Compiler warning and optimization flags
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
@@ -22,6 +23,7 @@ endif()
 file(GLOB AP4_SOURCES
   ${SOURCE_CODECS}/*.cpp
   ${SOURCE_CORE}/*.cpp
+  ${SOURCE_CAPI}/*.cpp
   ${SOURCE_CRYPTO}/*.cpp
   ${SOURCE_METADATA}/*.cpp
   ${SOURCE_SYSTEM}/StdC/*.cpp
