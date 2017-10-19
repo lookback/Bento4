@@ -51,6 +51,7 @@ class AP4_MpegAudioSampleDescription;
 class AP4_ProtectedSampleDescription;
 class AP4_SyntheticSampleTable;
 class AP4_AtomInspector;
+class AP4_Mpeg2TsWriter;
 #else
 typedef struct AP4_ByteStream AP4_ByteStream;
 typedef struct AP4_DataBuffer AP4_DataBuffer;
@@ -68,7 +69,9 @@ typedef struct AP4_MpegAudioSampleDescription AP4_MpegAudioSampleDescription;
 typedef struct AP4_ProtectedSampleDescription AP4_ProtectedSampleDescription;
 typedef struct AP4_SyntheticSampleTable AP4_SyntheticSampleTable;
 typedef struct AP4_AtomInspector AP4_AtomInspector;
+typedef struct AP4_Mpeg2TsWriter AP4_Mpeg2TsWriter;
 #endif
+typedef struct AP4_Mpeg2TsWriter_SampleStream AP4_Mpeg2TsWriter_SampleStream;
 
 typedef enum {
     AP4_FALSE = 0,
@@ -894,6 +897,48 @@ AP4_PrintInspector_Create(AP4_ByteStream* stream);
 
 AP4_AtomInspector*
 AP4_AtomInspector_FromDelegate(AP4_AtomInspectorDelegate* delegate);
+
+/*----------------------------------------------------------------------
+|   AP4_Mpeg2TsWriter methods
++---------------------------------------------------------------------*/
+
+AP4_Result AP4_Mpeg2TsWriter_SetAudioStream(AP4_Mpeg2TsWriter*                  writer,
+                                            AP4_UI32                            timescale,
+                                            AP4_UI08                            stream_type,
+                                            AP4_UI16                            stream_id,
+                                            AP4_Mpeg2TsWriter_SampleStream**    stream,
+                                            AP4_UI16                            pid,
+                                            const AP4_UI08*                     descriptor,
+                                            AP4_Size                            descriptor_length);
+
+AP4_Result AP4_Mpeg2TsWriter_SetVideoStream(AP4_Mpeg2TsWriter*                  writer,
+                                            AP4_UI32                            timescale,
+                                            AP4_UI08                            stream_type,
+                                            AP4_UI16                            stream_id,
+                                            AP4_Mpeg2TsWriter_SampleStream**    stream,
+                                            AP4_UI16                            pid,
+                                            const AP4_UI08*                     descriptor,
+                                            AP4_Size                            descriptor_length);
+
+AP4_Result AP4_Mpeg2TsWriter_WritePAT(AP4_Mpeg2TsWriter* writer, AP4_ByteStream* output);
+
+AP4_Result AP4_Mpeg2TsWriter_WritePMT(AP4_Mpeg2TsWriter* writer, AP4_ByteStream* output);
+
+AP4_Result AP4_Mpeg2TsWriter_SampleStream_WriteSample(AP4_Mpeg2TsWriter_SampleStream* sample_stream,
+                                                      AP4_Sample*            sample,
+                                                      AP4_DataBuffer*        sample_data,
+                                                      AP4_SampleDescription* sample_description,
+                                                      AP4_Boolean            with_pcr,
+                                                      AP4_ByteStream*        output);
+
+void AP4_Mpeg2TsWriter_Destroy(AP4_Mpeg2TsWriter* writer);
+
+/*----------------------------------------------------------------------
+|   AP4_Mpeg2TsWriter constructors
++---------------------------------------------------------------------*/
+
+AP4_Mpeg2TsWriter *AP4_Mpeg2TsWriter_Create();
+
 
 #ifdef __cplusplus
 }
