@@ -1047,7 +1047,7 @@ AP4_MpegSystemSampleDescription_Create(AP4_UI08        stream_type,
                                                max_bitrate,
                                                avg_bitrate);
 }
-                                       
+
 AP4_SampleDescription*
 AP4_AvcSampleDescription_Create(AP4_UI32         format,
                                 AP4_UI16         width,

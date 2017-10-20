@@ -762,11 +762,11 @@ AP4_MpegSystemSampleDescription_Create(AP4_UI08        stream_type,
                                        AP4_UI32        avg_bitrate);
                                        
 AP4_SampleDescription*
-AP4_AvcSampleDescription_Create(AP4_UI16         width,
+AP4_AvcSampleDescription_Create(AP4_UI32         format,
+                                AP4_UI16         width,
                                 AP4_UI16         height,
                                 AP4_UI16         depth,
                                 const char*      compressor_name,
-                                AP4_UI08         config_version,
                                 AP4_UI08         profile,
                                 AP4_UI08         level,
                                 AP4_UI08         profile_compatibility,
