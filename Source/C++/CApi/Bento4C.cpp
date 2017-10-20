@@ -1049,19 +1049,19 @@ AP4_MpegSystemSampleDescription_Create(AP4_UI08        stream_type,
 }
 
 AP4_SampleDescription*
-AP4_AvcSampleDescription_Create(AP4_UI32         format,
-                                AP4_UI16         width,
-                                AP4_UI16         height,
-                                AP4_UI16         depth,
-                                const char*      compressor_name,
-                                AP4_UI08         profile,
-                                AP4_UI08         level,
-                                AP4_UI08         profile_compatibility,
-                                AP4_UI08         nalu_length_size,
-                                AP4_DataBuffer** sequence_parameters,
-                                AP4_Size         sequence_parameter_count,
-                                AP4_DataBuffer** picture_parameters,
-                                AP4_Size         picture_parameter_count)
+AP4_AvcSampleDescription_Create(AP4_UI32              format,
+                                AP4_UI16              width,
+                                AP4_UI16              height,
+                                AP4_UI16              depth,
+                                const char*           compressor_name,
+                                AP4_UI08              profile,
+                                AP4_UI08              level,
+                                AP4_UI08              profile_compatibility,
+                                AP4_UI08              nalu_length_size,
+                                AP4_DataBuffer**const sequence_parameters,
+                                AP4_Size              sequence_parameter_count,
+                                AP4_DataBuffer**const picture_parameters,
+                                AP4_Size              picture_parameter_count)
 {
     AP4_Array<AP4_DataBuffer> sequence_params;
     AP4_Array<AP4_DataBuffer> picture_params;
