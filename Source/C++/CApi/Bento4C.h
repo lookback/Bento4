@@ -849,6 +849,7 @@ AP4_Sample*
 AP4_Sample_Create(AP4_ByteStream* data_stream,
                   AP4_Position    offset,
                   AP4_Size        size,
+                  AP4_UI32        duration,
                   AP4_Ordinal     description_index,
                   AP4_UI32        dts,
                   AP4_UI32        cts_offset,
