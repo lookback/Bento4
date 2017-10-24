@@ -932,6 +932,15 @@ AP4_Result AP4_Mpeg2TsWriter_SampleStream_WriteSample(AP4_Mpeg2TsWriter_SampleSt
                                                       AP4_Boolean            with_pcr,
                                                       AP4_ByteStream*        output);
 
+AP4_Result AP4_Mpeg2TsWriter_SampleStream_WritePES(AP4_Mpeg2TsWriter_SampleStream* sample_stream,
+                                                   const unsigned char*            data, 
+                                                   unsigned int                    data_size, 
+                                                   AP4_UI64                        dts, 
+                                                   AP4_Boolean                     with_dts, 
+                                                   AP4_UI64                        pts, 
+                                                   AP4_Boolean                     with_pcr, 
+                                                   AP4_ByteStream*                 output);
+
 void AP4_Mpeg2TsWriter_Destroy(AP4_Mpeg2TsWriter* writer);
 
 /*----------------------------------------------------------------------

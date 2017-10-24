@@ -1442,4 +1442,17 @@ AP4_Result AP4_Mpeg2TsWriter_SampleStream_WriteSample(AP4_Mpeg2TsWriter_SampleSt
     return stream->WriteSample(*sample, *sample_data, sample_description, with_pcr, *output);
 }
 
+AP4_Result AP4_Mpeg2TsWriter_SampleStream_WritePES(AP4_Mpeg2TsWriter_SampleStream* sample_stream,
+                                                   const unsigned char*            data, 
+                                                   unsigned int                    data_size, 
+                                                   AP4_UI64                        dts, 
+                                                   AP4_Boolean                     with_dts, 
+                                                   AP4_UI64                        pts, 
+                                                   AP4_Boolean                     with_pcr, 
+                                                   AP4_ByteStream*                 output)
+{
+    AP4_Mpeg2TsWriter::SampleStream *stream = (AP4_Mpeg2TsWriter::SampleStream *)sample_stream;
+    return stream->WritePES(data, data_size, dts, with_dts, pts, with_pcr, *output);
+}
+
 
