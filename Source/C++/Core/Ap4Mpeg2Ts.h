@@ -75,7 +75,7 @@ public:
     // classes
     class Stream {
     public:
-        Stream(AP4_UI16 pid) : m_PID(pid), m_ContinuityCounter(0) {}
+        Stream(AP4_UI16 pid) : m_ContinuityCounter(0), m_PID(pid) {}
         virtual ~Stream() {}
         
         AP4_UI16 GetPID() { return m_PID; }
@@ -85,9 +85,9 @@ public:
                                AP4_UI64        pcr,
                                AP4_ByteStream& output);
         
+        unsigned int m_ContinuityCounter;
     private:
         AP4_UI16     m_PID;
-        unsigned int m_ContinuityCounter;
     };
     
     class SampleStream : public Stream {

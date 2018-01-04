@@ -941,6 +941,13 @@ AP4_Result AP4_Mpeg2TsWriter_SampleStream_WritePES(AP4_Mpeg2TsWriter_SampleStrea
                                                    AP4_Boolean                     with_pcr, 
                                                    AP4_ByteStream*                 output);
 
+unsigned int AP4_Mpeg2TsWriter_SampleStream_GetContinuityCounter(AP4_Mpeg2TsWriter_SampleStream* sample_stream);
+
+unsigned int AP4_Mpeg2TsWriter_SampleStream_GetContinuityCounter(AP4_Mpeg2TsWriter_SampleStream* sample_stream);
+
+void AP4_Mpeg2TsWriter_SampleStream_SetContinuityCounter(AP4_Mpeg2TsWriter_SampleStream* sample_stream,
+                                          unsigned int                    counter);
+
 void AP4_Mpeg2TsWriter_Destroy(AP4_Mpeg2TsWriter* writer);
 
 /*----------------------------------------------------------------------

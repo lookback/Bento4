@@ -1455,4 +1455,15 @@ AP4_Result AP4_Mpeg2TsWriter_SampleStream_WritePES(AP4_Mpeg2TsWriter_SampleStrea
     return stream->WritePES(data, data_size, dts, with_dts, pts, with_pcr, *output);
 }
 
+unsigned int AP4_Mpeg2TsWriter_SampleStream_GetContinuityCounter(AP4_Mpeg2TsWriter_SampleStream* sample_stream)
+{
+    AP4_Mpeg2TsWriter::SampleStream *stream = (AP4_Mpeg2TsWriter::SampleStream *)sample_stream;
+    return stream->m_ContinuityCounter;
+}
 
+void AP4_Mpeg2TsWriter_SampleStream_SetContinuityCounter(AP4_Mpeg2TsWriter_SampleStream* sample_stream,
+                                          unsigned int                    counter)
+{
+    AP4_Mpeg2TsWriter::SampleStream *stream = (AP4_Mpeg2TsWriter::SampleStream *)sample_stream;
+    stream->m_ContinuityCounter = counter & 0x0f;
+}
